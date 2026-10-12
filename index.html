@@ -1,0 +1,641 @@
+
+<article class="sewer-backup-article">
+  <style>
+    .sewer-backup-article {
+      --sb-primary: #103b5c;
+      --sb-accent: #00a6a6;
+      --sb-text: #283747;
+      --sb-muted: #536577;
+      --sb-border: #dce7ee;
+      --sb-light: #f2f8fb;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      color: var(--sb-text);
+      font-size: 17px;
+      line-height: 1.8;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+      overflow-wrap: anywhere;
+    }
+
+    .sewer-backup-article *,
+    .sewer-backup-article *::before,
+    .sewer-backup-article *::after {
+      box-sizing: border-box;
+    }
+
+    .sewer-backup-article .sb-hero {
+      background: linear-gradient(135deg, #103b5c 0%, #176780 100%);
+      border-radius: 22px;
+      padding: clamp(28px, 6vw, 52px);
+      margin-bottom: 22px;
+    }
+
+    .sewer-backup-article .sb-eyebrow {
+      display: inline-block;
+      color: #a9f2ed;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .sewer-backup-article .sb-hero h2 {
+      color: #fff;
+      font-size: clamp(29px, 4.5vw, 42px);
+      line-height: 1.2;
+      letter-spacing: -1px;
+      font-weight: 800;
+      margin: 0 0 18px;
+    }
+
+    .sewer-backup-article .sb-hero p {
+      color: #e2f1f7;
+      font-size: 17px;
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0;
+    }
+
+    .sewer-backup-article .sb-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 22px;
+      background: #eaf7f8;
+      border: 1px solid #cce8e9;
+      border-radius: 17px;
+      padding: 24px 26px;
+      margin-bottom: 32px;
+    }
+
+    .sewer-backup-article .sb-cta-copy {
+      flex: 1 1 260px;
+    }
+
+    .sewer-backup-article .sb-cta-label {
+      display: block;
+      color: #087e83;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .sewer-backup-article .sb-cta h3 {
+      color: var(--sb-primary);
+      font-size: 21px;
+      line-height: 1.4;
+      font-weight: 800;
+      margin: 0 0 5px;
+    }
+
+    .sewer-backup-article .sb-cta p {
+      color: var(--sb-muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .sewer-backup-article .sb-call-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 14px 22px;
+      background: #087f86;
+      color: #fff;
+      border: 2px solid #087f86;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.4;
+      text-align: center;
+      transition: background .2s ease, border-color .2s ease;
+    }
+
+    .sewer-backup-article .sb-call-button:hover {
+      background: #103b5c;
+      border-color: #103b5c;
+      color: #fff;
+    }
+
+    .sewer-backup-article .sb-call-button:focus-visible,
+    .sewer-backup-article a:focus-visible {
+      outline: 3px solid #00a6a6;
+      outline-offset: 4px;
+    }
+
+    .sewer-backup-article .sb-call-button svg {
+      width: 19px;
+      height: 19px;
+      flex-shrink: 0;
+    }
+
+    .sewer-backup-article p {
+      margin: 0 0 21px;
+    }
+
+    .sewer-backup-article .sb-intro {
+      font-size: 18px;
+      line-height: 1.9;
+      color: #34495a;
+    }
+
+    .sewer-backup-article h2 {
+      color: var(--sb-primary);
+      font-size: clamp(25px, 3.5vw, 31px);
+      line-height: 1.3;
+      letter-spacing: -.5px;
+      font-weight: 800;
+      margin: 44px 0 17px;
+    }
+
+    .sewer-backup-article h3 {
+      color: var(--sb-primary);
+      font-size: 21px;
+      line-height: 1.4;
+      font-weight: 800;
+      margin: 0 0 10px;
+    }
+
+    .sewer-backup-article .sb-section-label {
+      color: #008b91;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .sewer-backup-article .sb-warning {
+      background: #fff6ed;
+      border: 1px solid #f4d8bd;
+      border-left: 5px solid #d97732;
+      border-radius: 0 12px 12px 0;
+      padding: 22px 24px;
+      margin: 26px 0;
+    }
+
+    .sewer-backup-article .sb-warning strong {
+      color: #8d431b;
+    }
+
+    .sewer-backup-article .sb-step {
+      display: grid;
+      grid-template-columns: 50px minmax(0, 1fr);
+      gap: 18px;
+      padding: 25px;
+      margin: 22px 0;
+      background: #fff;
+      border: 1px solid var(--sb-border);
+      border-radius: 16px;
+      box-shadow: 0 5px 18px rgba(16, 59, 92, .045);
+    }
+
+    .sewer-backup-article .sb-step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 13px;
+      background: #e3f7f5;
+      color: #087e83;
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    .sewer-backup-article .sb-step p:last-child {
+      margin-bottom: 0;
+    }
+
+    .sewer-backup-article .sb-inline-link {
+      color: #007d87;
+      font-weight: 750;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+
+    .sewer-backup-article .sb-inline-link:hover {
+      color: var(--sb-primary);
+    }
+
+    .sewer-backup-article .sb-summary {
+      background: linear-gradient(135deg, #eaf7f8, #f4f9fc);
+      border: 1px solid #d5ebed;
+      border-radius: 18px;
+      padding: clamp(24px, 5vw, 35px);
+      margin-top: 38px;
+    }
+
+    .sewer-backup-article .sb-summary h2 {
+      margin-top: 0;
+    }
+
+    .sewer-backup-article .sb-summary p:last-child {
+      margin-bottom: 0;
+    }
+
+    .sewer-backup-article .sb-service-info {
+      margin-top: 38px;
+      padding: clamp(24px, 5vw, 32px);
+      border: 1px solid var(--sb-border);
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .sewer-backup-article .sb-contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 22px 0 28px;
+    }
+
+    .sewer-backup-article .sb-contact-item {
+      padding: 17px;
+      border-radius: 12px;
+      background: var(--sb-light);
+      min-width: 0;
+    }
+
+    .sewer-backup-article .sb-contact-item span {
+      display: block;
+      color: var(--sb-muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .sewer-backup-article .sb-contact-item strong,
+    .sewer-backup-article .sb-contact-item a {
+      color: var(--sb-primary);
+      font-size: 16px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .sewer-backup-article .sb-service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .sewer-backup-article .sb-service-grid a {
+      display: block;
+      height: 100%;
+      padding: 12px 14px;
+      background: var(--sb-light);
+      border: 1px solid var(--sb-border);
+      border-radius: 10px;
+      color: var(--sb-primary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.5;
+      transition: background .2s ease, border-color .2s ease;
+    }
+
+    .sewer-backup-article .sb-service-grid a:hover {
+      background: #e3f7f5;
+      border-color: var(--sb-accent);
+    }
+
+    @media (max-width: 650px) {
+      .sewer-backup-article {
+        padding: 14px 15px 32px;
+        font-size: 16px;
+      }
+
+      .sewer-backup-article .sb-hero {
+        padding: 27px 22px;
+        border-radius: 16px;
+      }
+
+      .sewer-backup-article .sb-cta {
+        padding: 21px;
+        gap: 17px;
+      }
+
+      .sewer-backup-article .sb-call-button {
+        width: 100%;
+      }
+
+      .sewer-backup-article .sb-step {
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 13px;
+        padding: 19px;
+      }
+
+      .sewer-backup-article .sb-step-number {
+        width: 40px;
+        height: 40px;
+        border-radius: 11px;
+      }
+
+      .sewer-backup-article .sb-contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sewer-backup-article .sb-service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 380px) {
+      .sewer-backup-article .sb-service-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sewer-backup-article .sb-call-button,
+      .sewer-backup-article .sb-service-grid a {
+        transition: none;
+      }
+    }
+  </style>
+
+  <!-- HERO -->
+  <header class="sb-hero">
+    <span class="sb-eyebrow">Emergency Plumbing &amp; Home Safety</span>
+    <h2>How to Handle a Sewer Line Backup: Critical Safety Steps for Homeowners</h2>
+    <p>
+      A sewer backup can expose your household to contaminated water
+      and cause serious property damage. Learn how to protect your family,
+      limit further discharge, and arrange professional sewer line service.
+    </p>
+  </header>
+
+  <!-- CLICK-TO-CALL CTA -->
+  <aside class="sb-cta" aria-label="Emergency sewer line cleanup">
+    <div class="sb-cta-copy">
+      <span class="sb-cta-label">Sewer Backup Emergency?</span>
+      <h3>Emergency Sewer Line Cleanup in Houston</h3>
+      <p>Call to discuss a sewer backup and the next steps for your property.</p>
+    </div>
+
+    <a class="sb-call-button"
+       href="tel:+18325202683"
+       aria-label="Call emergency sewer line cleanup at 832-520-2683">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round"
+           stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2
+        19.79 19.79 0 0 1-8.63-3.07
+        19.5 19.5 0 0 1-6-6A19.79 19.79
+        0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3
+        a2 2 0 0 1 2 1.72c.12.96.36 1.9.7
+        2.79a2 2 0 0 1-.45 2.11L8.09 9.91
+        a16 16 0 0 0 6 6l1.27-1.27a2 2 0
+        0 1 2.11-.45c.89.34 1.83.58 2.79.7
+        A2 2 0 0 1 22 16.92z"/>
+      </svg>
+      Call (832) 520-2683
+    </a>
+  </aside>
+
+  <!-- INTRODUCTION -->
+  <p class="sb-intro">
+    Few home emergencies create more immediate stress than raw wastewater
+    pushing up through floor drains, bathtubs, and toilets. A sewer line
+    backup is not just messy; it presents a sanitary hazard because
+    wastewater can contain harmful microorganisms and other contaminants.
+  </p>
+
+  <p>
+    Knowing what to do in the first few minutes can help limit further
+    discharge, reduce exposure, and protect belongings while you arrange
+    professional assistance.
+  </p>
+
+  <div class="sb-warning">
+    <p>
+      <strong>Safety first:</strong> Keep people away from contaminated
+      water. Do not touch electrical equipment or enter a flooded area
+      where electrical hazards may be present. If you suspect an electrical
+      danger, stay out and contact the appropriate emergency professional.
+    </p>
+  </div>
+
+  <!-- STEP 1 -->
+  <section class="sb-step">
+    <div class="sb-step-number">1</div>
+    <div>
+      <h3>Stop All Indoor Water Use Immediately</h3>
+      <p>
+        As soon as you notice wastewater rising through lower fixtures,
+        stop running water throughout the home. Do not flush toilets,
+        shower, or run washing machines and dishwashers.
+      </p>
+      <p>
+        If the main sewer line is blocked, additional water entering the
+        drainage system can worsen the backup and cause more wastewater
+        to spill through floor drains, bathtubs, or other low fixtures.
+      </p>
+    </div>
+  </section>
+
+  <!-- STEP 2 -->
+  <section class="sb-step">
+    <div class="sb-step-number">2</div>
+    <div>
+      <h3>Keep Children and Pets Away from Flooded Areas</h3>
+      <p>
+        Treat sewage-contaminated water as hazardous. Keep children and
+        pets away, isolate affected rooms if it is safe to do so, and
+        avoid direct contact with wastewater or contaminated belongings.
+      </p>
+      <p>
+        Do not enter the affected area just to retrieve valuables.
+        If contact cannot be avoided, suitable protective equipment is
+        essential, but avoid cleanup yourself when contamination is
+        extensive or the area presents other hazards.
+      </p>
+    </div>
+  </section>
+
+  <!-- STEP 3 -->
+  <section class="sb-step">
+    <div class="sb-step-number">3</div>
+    <div>
+      <h3>Never Open a Sewer Cleanout Cap Yourself During a Backup</h3>
+      <p>
+        Avoid unscrewing an exterior sewer cleanout cap to release
+        pressure. If the line is full, wastewater may escape suddenly
+        when the cap is removed, exposing you to contaminated water
+        and creating an additional cleanup problem.
+      </p>
+      <p>
+        Leave the cleanout closed and have a qualified sewer professional
+        assess the situation and determine how to access the line safely.
+      </p>
+    </div>
+  </section>
+
+  <!-- STEP 4 -->
+  <section class="sb-step">
+    <div class="sb-step-number">4</div>
+    <div>
+      <h3>Contact a Qualified Sewer Clearing Specialist</h3>
+      <p>
+        Main sewer lines can extend a considerable distance from the
+        property to the public sewer connection. A small household drain
+        snake may not be suitable for a main line obstruction caused by
+        dense debris, wipes, tree roots, or pipe damage.
+      </p>
+      <p>
+        Contact an experienced
+        <a class="sb-inline-link"
+           href="https://draincleaninghouston.us/sewer-backup/">
+          emergency sewer backup company
+        </a>
+        to assess the blockage and determine the safest clearing method.
+        Equipment may include commercial drain machines or hydro jetting
+        systems, depending on the pipe condition and obstruction.
+      </p>
+      <p>
+        You can learn more about the
+        <a class="sb-inline-link"
+           href="https://draincleaninghouston.us/sewer-backup/">
+          Houston Drain Pros sewer backup service
+        </a>
+        and the available options for addressing a sewer line emergency.
+      </p>
+    </div>
+  </section>
+
+  <!-- STEP 5 -->
+  <section class="sb-step">
+    <div class="sb-step-number">5</div>
+    <div>
+      <h3>Document Damage and Arrange a Video Inspection</h3>
+      <p>
+        Once the immediate backup is controlled, take photographs of
+        affected floors, walls, furniture, and other damaged belongings
+        when it is safe to do so. Keep records of cleanup costs and
+        contact your homeowner insurance provider to understand your
+        coverage and documentation requirements.
+      </p>
+      <p>
+        A sewer camera inspection can help identify whether the blockage
+        was caused by accumulated debris, invasive roots, an offset joint,
+        or another visible pipe defect. Further repair may be necessary
+        if structural damage is found.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section class="sb-summary">
+    <div class="sb-section-label">Protect your home</div>
+    <h2>Respond Quickly to a Sewer Line Emergency</h2>
+    <p>
+      During a sewer backup, stop water use, keep people and pets away
+      from contaminated areas, and avoid opening sewer cleanouts or
+      attempting hazardous repairs yourself. Prompt professional
+      assessment can help identify the obstruction and determine what
+      is needed to restore drainage safely.
+    </p>
+    <p>
+      After the blockage is resolved, appropriate sewage cleanup and
+      disinfection are important before affected areas are returned
+      to normal use.
+    </p>
+  </section>
+
+  <!-- SERVICE INFORMATION -->
+  <section class="sb-service-info">
+    <div class="sb-section-label">Houston, Texas</div>
+    <h2>Emergency Sewer Backup Service Information</h2>
+
+    <div class="sb-contact-grid">
+      <div class="sb-contact-item">
+        <span>Emergency Line</span>
+        <a href="tel:+18325202683">(832) 520-2683</a>
+      </div>
+
+      <div class="sb-contact-item">
+        <span>Scheduling Line</span>
+        <a href="tel:+18325202683">(832) 520-2683</a>
+      </div>
+
+      <div class="sb-contact-item">
+        <span>Service Location</span>
+        <strong>Houston, TX</strong>
+      </div>
+
+      <div class="sb-contact-item">
+        <span>Emergency Hours</span>
+        <strong>24/7 availability stated by provider</strong>
+      </div>
+    </div>
+
+    <div class="sb-section-label">Areas We Serve</div>
+    <h2>Houston and Nearby Communities</h2>
+
+    <p>
+      Explore the service-area pages for Houston and surrounding
+      communities.
+    </p>
+
+    <nav class="sb-service-grid" aria-label="Sewer service areas">
+      <a href="https://draincleaninghouston.us/service-areas/">
+        Houston Service Hub
+      </a>
+      <a href="https://draincleaninghouston.us/service-areas/katy/">
+        Katy
+      </a>
+      <a href="https://draincleaninghouston.us/service-areas/cypress/">
+        Cypress
+      </a>
+      <a href="https://draincleaninghouston.us/service-areas/sugar-land/">
+        Sugar Land
+      </a>
+      <a href="https://draincleaninghouston.us/service-areas/pearland/">
+        Pearland
+      </a>
+      <a href="https://draincleaninghouston.us/service-areas/pasadena/">
+        Pasadena
+      </a>
+      <a href="https://draincleaninghouston.us/service-areas/spring/">
+        Spring
+      </a>
+      <a href="https://draincleaninghouston.us/service-areas/humble/">
+        Humble
+      </a>
+      <a href="https://draincleaninghouston.us/service-areas/missouri-city/">
+        Missouri City
+      </a>
+      <a href="https://draincleaninghouston.us/service-areas/baytown/">
+        Baytown
+      </a>
+      <a href="https://draincleaninghouston.us/service-areas/the-woodlands/">
+        The Woodlands
+      </a>
+      <a href="https://draincleaninghouston.us/service-areas/league-city/">
+        League City
+      </a>
+      <a href="https://draincleaninghouston.us/service-areas/springtown/">
+        Springtown
+      </a>
+    </nav>
+
+    <p style="margin-top: 24px; margin-bottom: 0;">
+      <a class="sb-call-button" href="tel:+18325202683">
+        Call (832) 520-2683
+      </a>
+    </p>
+  </section>
+</article>
+
+
